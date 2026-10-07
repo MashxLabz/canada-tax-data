@@ -21,6 +21,7 @@ dollars, and a bracket's `upTo` of `null` means no upper limit.
 | `cpp`, `qpp` | Canada and Quebec Pension Plan: basic exemption, first and second earnings ceilings, base and enhanced rates, and the second-ceiling (CPP2/QPP2) rate |
 | `ei`, `eiQC`, `qpip` | Employment Insurance (outside and inside Quebec) and the Quebec Parental Insurance Plan: maximum insurable earnings and employee rates |
 | `rrsp` | The RRSP dollar limit and the percentage of earned income |
+| `bonusFlat` | Flat income-tax withholding on a bonus when annual pay is low. `federal`: when the employee's total remuneration for the year, bonus included, is `limit` or less, the employer withholds `rate` of the bonus (`rateQC` in Quebec, where it is the federal share only). `qc`: Revenu Québec's rate on a bonus when estimated pay for the year, bonus included, does not exceed `limit`, which is Quebec's basic personal amount. Each `limit` tests the year's total pay, not the bonus |
 | `ohpBands`, `onSurtax`, `onReduction` | Ontario Health Premium bands, the two Ontario surtax tiers and the basic Ontario tax reduction |
 | `bcReduction` | British Columbia's tax reduction: maximum, threshold and phase-out rate |
 | `dividends` | Gross-up and federal and provincial dividend tax credit rates for eligible and non-eligible dividends (Ontario, BC, Alberta, Quebec) |
@@ -32,6 +33,9 @@ after its 1 July 2026 change, for a corporation with a calendar year.
 
 The top level also carries `taxYear`, `verified` (the date the figures were last checked against
 their sources), `sources` (the primary government pages they come from) and `licence`.
+
+The `bonusFlat` block is newer than the `verified` date: it was first read on 6 October 2026, from
+the Canada Revenue Agency's guide T4001 and Revenu Québec's Guide for Employers (TP-1015.G-V, section 9.5).
 
 ## How the figures are checked
 
