@@ -22,6 +22,7 @@ dollars, and a bracket's `upTo` of `null` means no upper limit.
 | `ei`, `eiQC`, `qpip` | Employment Insurance (outside and inside Quebec) and the Quebec Parental Insurance Plan: maximum insurable earnings and employee rates |
 | `rrsp` | The RRSP dollar limit and the percentage of earned income |
 | `bonusFlat` | Flat income-tax withholding on a bonus when annual pay is low. `federal`: when the employee's total remuneration for the year, bonus included, is `limit` or less, the employer withholds `rate` of the bonus (`rateQC` in Quebec, where it is the federal share only). `qc`: Revenu Québec's rate on a bonus when estimated pay for the year, bonus included, does not exceed `limit`, which is Quebec's basic personal amount. Each `limit` tests the year's total pay, not the bonus |
+| `payrollTax` | The payroll tax the Northwest Territories and Nunavut levy on employees, keyed by territory code: `rate` is applied to gross employment remuneration (not to taxable income, and not reduced by an RRSP contribution). It is not income tax and is separate from every other block; no other province or territory has an entry |
 | `ohpBands`, `onSurtax`, `onReduction` | Ontario Health Premium bands, the two Ontario surtax tiers and the basic Ontario tax reduction |
 | `bcReduction` | British Columbia's tax reduction: maximum, threshold and phase-out rate |
 | `dividends` | Gross-up and federal and provincial dividend tax credit rates for eligible and non-eligible dividends (Ontario, BC, Alberta, Quebec) |
@@ -36,6 +37,10 @@ their sources), `sources` (the primary government pages they come from) and `lic
 
 The `bonusFlat` block is newer than the `verified` date: it was first read on 6 October 2026, from
 the Canada Revenue Agency's guide T4001 and Revenu Québec's Guide for Employers (TP-1015.G-V, section 9.5).
+
+The `payrollTax` block is newer too: it was first read on 7 October 2026, from each territory's Payroll
+Tax Act (section 3(1): 2% of the remuneration paid to the employee in the year). The cost of living tax
+credits that residents of the two territories claim on their returns are not in this file.
 
 ## How the figures are checked
 

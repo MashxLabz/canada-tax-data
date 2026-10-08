@@ -8,6 +8,7 @@
   "licence": "CC BY 4.0 — attribute to Countworthy (https://countworthy.com)",
   "sources": [
     "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jan.html",
+    "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul.html",
     "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
     "https://www.revenuquebec.ca/documents/en/formulaires/tp/TP-1015.F-V(2026-01).pdf",
     "https://www.revenuquebec.ca/documents/en/formulaires/tp/TP-1015.G-V(2026-01).pdf",
@@ -15,7 +16,10 @@
     "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/corporation-tax-rates.html",
     "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-40425-federal-dividend-tax-credit.html",
     "https://budget.ontario.ca/2026/annex.html",
-    "https://www.revenuquebec.ca/en/press-room/tax-news/details/2026-05-04/increase-in-the-small-business-deduction-rate/"
+    "https://www.revenuquebec.ca/en/press-room/tax-news/details/2026-05-04/increase-in-the-small-business-deduction-rate/",
+    "https://www.justice.gov.nt.ca/en/files/legislation/payroll-tax/payroll-tax.a.pdf",
+    "https://www.nunavutlegislation.ca/en/consolidated-law/payroll-tax-act-consolidation",
+    "https://www.gov.nu.ca/sites/default/files/documents/2026-01/January_2026_Nunavut_Tax_Rate_Sheet_-_EN.pdf"
   ],
   "note": "Generated from ca-tax-2026.js, the same engine countworthy.com runs and its tests import.",
   "parameters": {
@@ -77,6 +81,14 @@
     "qpip": {
       "mie": 103000,
       "rate": 0.0043
+    },
+    "payrollTax": {
+      "NT": {
+        "rate": 0.02
+      },
+      "NU": {
+        "rate": 0.02
+      }
     },
     "rrsp": {
       "dollarLimit": 33810,
