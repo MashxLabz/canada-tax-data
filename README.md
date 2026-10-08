@@ -23,6 +23,7 @@ dollars, and a bracket's `upTo` of `null` means no upper limit.
 | `rrsp` | The RRSP dollar limit and the percentage of earned income. `dollarLimit` is the 2026 limit, which caps a 2026 deduction; `dollarLimit2027` is the 2027 limit, which caps the room that 2026 earned income creates |
 | `bonusFlat` | Flat income-tax withholding on a bonus when annual pay is low. `federal`: when the employee's total remuneration for the year, bonus included, is `limit` or less, the employer withholds `rate` of the bonus (`rateQC` in Quebec, where it is the federal share only). `qc`: Revenu Québec's rate on a bonus when estimated pay for the year, bonus included, does not exceed `limit`, which is Quebec's basic personal amount. Each `limit` tests the year's total pay, not the bonus |
 | `payrollTax` | The payroll tax the Northwest Territories and Nunavut levy on employees, keyed by territory code: `rate` is applied to gross employment remuneration (not to taxable income, and not reduced by an RRSP contribution). It is not income tax and is separate from every other block; no other province or territory has an entry |
+| `hsf` | Quebec's Health Services Fund, two separate charges: `employer`, the corporation's contribution on the wages it pays, and `individual`, a person's own contribution on income other than employment income (see below) |
 | `ohpBands`, `onSurtax`, `onReduction` | Ontario Health Premium bands, the two Ontario surtax tiers and the basic Ontario tax reduction |
 | `bcReduction` | British Columbia's tax reduction: maximum, threshold and phase-out rate |
 | `dividends` | Gross-up and federal and provincial dividend tax credit rates for eligible and non-eligible dividends (Ontario, BC, Alberta, Quebec) |
@@ -56,6 +57,25 @@ Four parameters were added on 8 October 2026, each read from its source that day
   Québec, Information Bulletin 2026-3). A corporation that does not qualify pays Quebec's `general`
   rate within the business limit too. The file does not carry the partial deduction between 5,000 and
   5,500 hours.
+
+The `hsf` block was also added on 8 October 2026 and read from its sources that day: the Act respecting
+the Régie de l'assurance maladie du Québec (chapter R-5, ss. 33, 34 and 34.1.1 to 34.1.6.1), Revenu
+Québec's Guide for Employers TP-1015.G-V (2026-01), section 6.1, and its rate page, Schedule F
+(TP-1.D.F-V, 2025-12), and Finances Québec's Parameters of the Personal Income Tax System for 2026
+with Information Bulletin 2025-8. Rates are fractions (0.0165 is 1.65%); `a` and `b` are in percentage
+points, as the Act and the guide print them.
+
+- `hsf.employer`: the contribution of an employer outside the primary and manufacturing sectors.
+  `flatRate` where total payroll is `floor` or less; between `floor` and `threshold`, `a` + `b` × total
+  payroll ÷ 1,000,000 per cent, kept to two decimals with the second raised by one when the third is
+  more than 4; `maxRate` from `threshold`. The rate applies to all the wages. The file does not carry the
+  primary and manufacturing schedule, or the contribution holiday announced for 2026 and 2027 for
+  agriculture, forestry and fishing employers, which the Act as consolidated to 12 August 2026 does
+  not contain.
+- `hsf.individual`: paid on the Quebec return (line 446). Nothing up to `threshold1`; `rate` of the
+  excess to a maximum of `max1` up to `threshold2`; above it, `max1` plus `rate` of the excess over
+  `threshold2`, to a maximum of `max2`. Only the two thresholds are indexed, each January. The base is
+  income other than employment income, with a dividend at its actual amount, not grossed up.
 
 The same day, the calculators that use the `dividends` and `corporate` blocks were corrected: Ontario's
 surtax is computed before the dividend tax credit (Taxation Act, 2007, s. 16(2)). No figure in those two

@@ -21,6 +21,11 @@
     "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-89.html",
     "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-146.html",
     "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
+    "https://www.legisquebec.gouv.qc.ca/en/document/cs/R-5",
+    "https://www.revenuquebec.ca/en/businesses/source-deductions-and-employer-contributions/calculating-source-deductions-and-contributions/employer-contribution-to-the-health-services-fund/total-payroll-threshold-and-health-services-fund-contribution-rate/",
+    "https://www.revenuquebec.ca/documents/en/formulaires/tp/2025-12/TP-1.D.F-V(2025-12).pdf",
+    "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/parametres/AUTEN_IncomeTax2026.pdf",
+    "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/Bulletins/EN/BULEN_2025-8.pdf",
     "https://www.justice.gov.nt.ca/en/files/legislation/payroll-tax/payroll-tax.a.pdf",
     "https://www.nunavutlegislation.ca/en/consolidated-law/payroll-tax-act-consolidation",
     "https://www.gov.nu.ca/sites/default/files/documents/2026-01/January_2026_Nunavut_Tax_Rate_Sheet_-_EN.pdf"
@@ -86,6 +91,23 @@
       "mie": 103000,
       "rate": 0.0043,
       "employerRate": 0.00602
+    },
+    "hsf": {
+      "employer": {
+        "flatRate": 0.0165,
+        "floor": 1000000,
+        "a": 1.2662,
+        "b": 0.3838,
+        "threshold": 7800000,
+        "maxRate": 0.0426
+      },
+      "individual": {
+        "threshold1": 18500,
+        "threshold2": 64355,
+        "rate": 0.01,
+        "max1": 150,
+        "max2": 1000
+      }
     },
     "payrollTax": {
       "NT": {
