@@ -4,7 +4,7 @@
   "dataset": "Canadian personal income tax parameters",
   "jurisdiction": "CA",
   "taxYear": 2026,
-  "verified": "2026-09-03",
+  "verified": "2026-10-08",
   "licence": "CC BY 4.0 — attribute to Countworthy (https://countworthy.com)",
   "sources": [
     "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jan.html",
@@ -17,6 +17,10 @@
     "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-40425-federal-dividend-tax-credit.html",
     "https://budget.ontario.ca/2026/annex.html",
     "https://www.revenuquebec.ca/en/press-room/tax-news/details/2026-05-04/increase-in-the-small-business-deduction-rate/",
+    "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/Bulletins/EN/BULEN_2026-3.pdf",
+    "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-89.html",
+    "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-146.html",
+    "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
     "https://www.justice.gov.nt.ca/en/files/legislation/payroll-tax/payroll-tax.a.pdf",
     "https://www.nunavutlegislation.ca/en/consolidated-law/payroll-tax-act-consolidation",
     "https://www.gov.nu.ca/sites/default/files/documents/2026-01/January_2026_Nunavut_Tax_Rate_Sheet_-_EN.pdf"
@@ -80,7 +84,8 @@
     },
     "qpip": {
       "mie": 103000,
-      "rate": 0.0043
+      "rate": 0.0043,
+      "employerRate": 0.00602
     },
     "payrollTax": {
       "NT": {
@@ -92,7 +97,8 @@
     },
     "rrsp": {
       "dollarLimit": 33810,
-      "pct": 0.18
+      "pct": 0.18,
+      "dollarLimit2027": 35390
     },
     "bonusFlat": {
       "federal": {
@@ -552,6 +558,7 @@
         "general": 0.15,
         "limit": 500000
       },
+      "generalRateFactor": 0.72,
       "provinces": {
         "ON": {
           "sbd": 0.02695890410958904,
@@ -571,7 +578,8 @@
         "QC": {
           "sbd": 0.032,
           "general": 0.115,
-          "limit": 500000
+          "limit": 500000,
+          "sbdTest": true
         }
       }
     },
